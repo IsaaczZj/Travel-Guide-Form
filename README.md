@@ -46,7 +46,7 @@ Este é um projeto de um formulário de cadastro de usuário com validação de 
     ```
 4.  Abra o navegador no endereço fornecido (geralmente `http://localhost:5173`).
 
-## Estrutura do Projeto (Exemplo)
+## Estrutura do Projeto
 
 *   `src/`: Contém todo o código fonte da aplicação.
     *   `assets/`: Arquivos estáticos como imagens (`men_walking.jpeg`).
