@@ -9,7 +9,7 @@ export const userFormSchema = z
     }),
     email: z
       .string()
-      .min(1, "O campo nao é obrigatorio")
+      .min(1, "O campo é obrigatorio")
       .email("Insira um email válido"),
     password: z.string().min(6, "A senha precisa ter no minimo 6 caracteres"),
     confirmpassword: z

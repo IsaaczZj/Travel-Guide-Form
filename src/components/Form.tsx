@@ -10,8 +10,10 @@ const Form = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
-      <h1 className="font-bold text-2xl text-center text-emerald-700 uppercase">Cadastre-se</h1>
+    <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+      <h1 className="font-bold text-2xl text-center text-emerald-700 uppercase">
+        Cadastre-se
+      </h1>
       <div className="">
         <Input
           label="Nome:"
@@ -20,7 +22,9 @@ const Form = () => {
           placeholder="Digite seu nome"
           {...register("name")}
         />
-        {errors.name && <small>{errors.name.message}</small>}
+        {errors.name && (
+          <small className="italic text-red-500">{errors.name?.message}</small>
+        )}
       </div>
       <div>
         <Input
@@ -30,23 +34,45 @@ const Form = () => {
           placeholder="Digite seu sobrenome"
           {...register("lastname")}
         />
-        {errors.name && <small>{errors.name.message}</small>}
+        {errors.lastname && (
+          <small className="italic text-red-500">
+            {errors.lastname?.message}
+          </small>
+        )}
       </div>
       <div>
-        <select name="" id="">
-          <option value="" disabled selected>Selecione</option>
+        <label htmlFor="gender" className="font-light text-green-950">
+          Genero
+        </label>
+        <select
+          className="w-full border-1 border-emerald-700 p-2.5 text-green-950"
+          id="gender"
+          {...register("gender")}
+        >
+          <option value="select" disabled selected>
+            Selecione
+          </option>
+          <option value="male">Masculino</option>
+          <option value="female">Feminino</option>
+          <option value="none">Prefiro não dizer</option>
         </select>
-        {errors.name && <small>{errors.name.message}</small>}
+        {errors.gender && (
+          <small className="italic text-red-500">
+            {errors.gender?.message}
+          </small>
+        )}
       </div>
       <div>
         <Input
           label="Email:"
-          type="text"
+          type="email"
           id="name"
           placeholder="Digite seu email"
           {...register("email")}
         />
-        {errors.name && <small>{errors.name.message}</small>}
+        {errors.email && (
+          <small className="italic text-red-500">{errors.email?.message}</small>
+        )}
       </div>
       <div>
         <Input
@@ -56,7 +82,11 @@ const Form = () => {
           placeholder="Digite sua senha"
           {...register("password")}
         />
-        {errors.name && <small>{errors.name.message}</small>}
+        {errors.password && (
+          <small className="italic text-red-500">
+            {errors.password?.message}
+          </small>
+        )}
       </div>
       <div>
         <Input
@@ -66,9 +96,34 @@ const Form = () => {
           placeholder="Confirme a senha"
           {...register("confirmpassword")}
         />
-        {errors.name && <small>{errors.name.message}</small>}
+        {errors.confirmpassword && (
+          <small className="italic text-red-500">
+            {errors.confirmpassword?.message}
+          </small>
+        )}
       </div>
-      <button className="py-2 px-5 w-full bg-emerald-800 text-white rounded-lg cursor-pointer opacity-85 hover:opacity-100" type="submit">Cadastrar</button>
+      <div className="flex flex-col">
+        <div className="flex items-center gap-2">
+          <input
+            className="outline-0"
+            type="checkbox"
+            id="agree"
+            {...register("agree")}
+          />
+          <label className="font-light text-green-950 " htmlFor="label">
+            Concordo com os termos
+          </label>
+        </div>
+        {errors.confirmpassword && (
+          <small className="italic text-red-500">{errors.agree?.message}</small>
+        )}
+      </div>
+      <button
+        className="py-2 px-5 w-full bg-emerald-800 text-white rounded-lg cursor-pointer opacity-85 hover:opacity-100 transition-all"
+        type="submit"
+      >
+        Cadastrar
+      </button>
     </form>
   );
 };
